@@ -1,0 +1,41 @@
+.m-table{
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: unset;
+    border: unset;
+}
+
+.m-table tr{
+    border-bottom: 1px solid #bbbbbb;
+    height: 48px;
+}
+
+.m-table tr td,
+.m-table tr th{
+    padding-left: 16px;
+    padding-right: 10px;
+}
+
+.m-table .text-align-left{
+    text-align: left;
+}
+
+.m-table .text-align-right{
+    text-align: right;
+}
+
+.m-table .text-align-center{
+    text-align: center;
+}
+.m-table tbody tr:hover{
+    background-color: #e9ebee;
+    cursor: pointer;
+}
+
+.m-table tbody tr.m-row-selected{
+    background-color: #e3f3ee;
+}
+
+.row-selected{
+    background-color: aquamarine;
+}

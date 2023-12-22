@@ -1,0 +1,81 @@
+@import url(./components/button.css);
+@import url(./components/input.css);
+@import url(./components/icon.css);
+@import url(./components/toast.css);
+@import url(./components/table.css);
+@import url(./components/paging.css);
+@import url(./components/dialog.css);
+
+/* @import url(./layout/header.css);
+@import url(./layout/content.css);
+@import url(./layout/navbar.css); */
+/* @import url(../CSS/page/employee.css); */
+/* @import url(../CSS/components/combobox.css); */
+
+/* @import url(../assets/font/fontawesome-5.15.1/css/all.min.css);
+@import url(../assets/font/fontawesome-5.15.1/js/all.min.js); */
+body{
+    font-family: GoogleSands;
+    font-size: 13px;
+}
+
+@font-face {
+    font-family: GoogleSands;
+    src: url("../assets/font/GoogleSans-Regular.otf");
+}
+
+@font-face {
+    font-family: GoogleSands Bold;
+    src: url("../assets/font/GoogleSans-Bold.otf");
+}
+
+@font-face {
+    font-family: GoogleSands Italic;
+    src: url("../assets/font/GoogleSans-BoldItalic.otf");
+}
+
+.main{
+    display: flex;
+    width: 100%;
+    height: calc(100vh - 48px);
+    
+}
+
+.m-row{
+    width: 100%;
+    margin-top: 4px;
+} 
+
+
+.text-align-right {
+    text-align: right;
+}
+
+.m-loading{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #0000004f;
+    z-index: 999;
+}
+
+.m-loading .m-loading-icon{
+    position: absolute;
+    top: 50%;
+    left:  50%;
+    transform: translate(-50%, -50%);
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 2s linear infinite;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+

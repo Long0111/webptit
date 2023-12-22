@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh mục nhân viên - CUKCUK.VN</title>
+    <link rel="stylesheet" href="../CSS/main.css">
+    <link rel="stylesheet" href="../CSS/page/employee.css">
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-left">
+            <div class="sibar"></div>
+            <div class="logo"></div>
+        </div>
+        <div class="header-right"></div>
+    </div>
+    <div class="main">
+        <div class="navbar">
+            <a class="menu-item menu-item-focus">
+                <div class="menu-icon m-icon m-icon-dashboard"></div>
+                <div class="menu-text">Tổng quan</div>
+            </a>
+            <a class="menu-item">
+                <div class="menu-icon m-icon m-icon-employee"></div>
+                <div class="menu-text">Danh sách nhân viên</div>
+            </a>
+            <a class="menu-item">
+                <div class="menu-icon m-icon m-icon-document"></div>
+                <div class="menu-text">Báo cáo</div>
+            </a>
+            <a class="menu-item">
+                <div class="menu-icon m-icon m-icon-setting"></div>
+                <div class="menu-text">Cài đặt</div>
+            </a>
+        </div>
+        <div class="page-content m-page-content">
+            <div class="m-page-header">
+                <div class="m-page-title">Danh sách nhân viên</div>
+                <div class="m-page-button">
+                    <button id="btnAdd" class="m-btn m-btn-icon m-btn-icon-add">Thêm mới nhân viên</button>
+                </div>
+                
+            </div>
+            <div class="m-page-toolbar">
+                <div class="m-toolbar-left">
+                    <input type="text" style="width: 200px;" class="m-input " placeholder="Tìm kiếm theo tên, số hồ sơ">
+                    <select name="" id="">
+                        <option value="">Tất cả phòng ban</option>
+                        <option value="">Phòng đào tạo</option>
+                    </select>
+                    <select name="" id="">
+                        <option value="">Tất cả vị trí</option>
+                        <option value="">Giám đốc</option>
+                        <option value="">Nhân viên</option>
+                    </select>
+                </div>
+                <div class="m-toolbar-right">
+                    <button id="btnRefresh" class="m-btn-refresh"></button>
+                </div>
+            </div>
+            <div class="m-page-grid">
+                <div class="m-grid">
+                    <table id="tblEmployee" class="m-table">
+                        <thead>
+                            <tr>
+                                <th class="text-align-center" style="width: 20px;">#</th>
+                                <th class="text-align-left" style="min-width: 70px;">Mã nhân viên</th>
+                                <th class="text-align-left" style="min-width: 170px;">Họ và tên</th>
+                                <th class="text-align-left" style="width: 70px;">Giới tính</th>
+                                <th class="text-align-center" style="width: 100px;">Ngày sinh</th>
+                                <th class="text-align-center" style="width: 100px;">Số CMTND/ Căn cước</th>
+                                <th class="text-align-center" style="width: 100px;">Ngày cấp</th>
+                                <th class="text-align-left" style="width: 100px;">Nơi cấp</th>
+                                <th class="text-align-right" style="width: 100px;">Điện thoại</th>
+                                <th class="text-align-left" style="width: 100px;">Email</th>
+                                <th class="text-align-left" style="min-width: 150px;">Chức vụ</th>
+                                <th class="text-align-left" style="min-width: 150px;">Phòng ban</th>
+                                <th class="text-align-right" style="width: 150px;">Mức lương cơ bản</th>
+                                <th class="text-align-left" style="min-width: 100px;">Tình trạng công việc</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                           
+                        </tbody>
+                    </table>
+                </div>
+                <div class="m-row">
+                    
+                    <div class="m-paging">
+                        <div class="m-paging-left">Hiển thị 1-100 nhân viên</div>
+                        <div class="m-paging-center">
+                            <button class="m-btn-first"></button>
+                            <button class="m-btn-prev"></button>
+                            <div class="m-page-number-group">
+                                <button class="m-page-number">1</button>
+                                <button class="m-page-number">2</button>
+                                <button class="m-page-number">3</button>
+                                <button class="m-page-number">4</button>
+                            </div>
+                            <button class="m-btn-next"></button>
+                            <button class="m-btn-last"></button>
+                        </div>
+                        <div class="m-paging-right">
+                            <select name="" id="">
+                                <option value="10">10 nhân viên/trang</option>
+                                <option value="20">20 nhân viên/trang</option>
+                                <option value="50">50 nhân viên/trang</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="dlgDialog" class="m-dialog">
+                <div class="m-dialog-content">
+                    <div class="m-dialog-header">
+                        <div class="m-dialog-title" style="text-overflow: 60;">THÔNG TIN NHÂN VIÊN</div>
+                        <button class="m-dialog-close"><i class="fas fa-window-close"></i></button>
+                    </div>
+                    
+                    <div class="m-dialog-main">
+                        <div class="m-dialog-img">
+                            <input type="file" id="uploadInput" style="display: none;">
+                            <label for="uploadInput">
+                                <button>Chọn ảnh</button>
+                                <div>(Vui lòng chọn ảnh có định dạng .jpg .jpeg .png .gif)</div>
+                            </label>
+                            <img id="previewImage" src="#" alt="Hình ảnh xem trước" style="display: none; max-width: 300px;">
+
+                            <!-- <script>
+                                // Gán một hàm xử lý sự kiện khi người dùng chọn tệp tin
+                                document.getElementById("uploadInput").addEventListener("change", function(event) {
+                                    var input = event.target;
+                                    var reader = new FileReader();
+
+                                    // Xử lý khi đọc xong tệp tin ảnh
+                                    reader.onload = function() {
+                                        var dataURL = reader.result;
+                                        var previewImage = document.getElementById("previewImage");
+
+                                        // Hiển thị hình ảnh xem trước
+                                        previewImage.src = dataURL;
+                                        previewImage.style.display = "block";
+                                    };
+
+                                    // Đọc tệp tin ảnh
+                                    reader.readAsDataURL(input.files[0]);
+                                });
+                            </script> -->
+
+                        </div>
+                        <div class="m-dialog-body">
+                            <div class="m-dialog-a">
+                                <label for="" style="border-bottom: 5px solid #019160;">A. THÔNG TIN CHUNG</label>
+                                <div class="m-dialog-left">
+                                    <label for="">Mã nhân viên</label>
+                                    <div class="m-row">
+                                        <input id="txtEmployeeCode" required type="text" style="width: 200px;" class="m-input " placeholder="Nhập mã nhân viên">
+                                    </div>
+                                    <label for="">Ngày sinh</label>
+                                    <div class="m-row">
+                                        <input id="dtDateOfBirth" type="date" style="width: 200px;" class="m-input ">
+                                    </div>
+                                    <label for="">Số CMTND/ Căn cước</label>
+                                    <div class="m-row">
+                                        <input id="txtIdentityNumber" required type="text" style="width: 200px;" class="m-input text-align-right">
+                                    </div>
+                                    <label for="">Nơi cấp</label>
+                                    <div class="m-row">
+                                        <input id="txtAddress" required type="text" style="width: 200px;" class="m-input text-align-right">
+                                    </div>
+                                    <label for="">Email</label>
+                                    <div class="m-row">
+                                        <input id="txtEmail" type="text" style="width: 200px;" class="m-input ">
+                                    </div>
+                                </div>
+    
+                                <div class="m-dialog-right">
+                                    <label for="">Họ và tên</label>
+                                    <div class="m-row">
+                                        <input id="txtFullName" required type="text" style="width: 200px;" class="m-input " placeholder="Nhập họ và tên">
+                                    </div>
+                                    <label for="">Giới tính</label>
+                                    <div class="m-row">
+                                        <select name="" id="cbxGender" style="width: 234px;">
+                                            <option value="0">Nam</option>
+                                            <option value="1">Nữ</option>
+                                        </select>
+                                    </div>
+                                    <label for="">Ngày cấp</label>
+                                    <div class="m-row">
+                                        <input id="dtIdentityDate" type="date" style="width: 200px;" class="m-input ">
+                                    </div>
+                                    <label for="">Số điện thoại</label>
+                                    <div class="m-row">
+                                        <input id="txtPhoneNumber" required type="text" style="width: 200px;" class="m-input text-align-right">
+                                    </div>
+                                </div>
+    
+                            </div>
+                            <div class="m-dialog-b">
+                                <label for="" style="position: fixed;bottom: 248px;border-bottom: 5px solid #019160;">B. THÔNG TIN CÔNG VIỆC</label>
+                                <div class="m-dialog-left">
+                                    <label for="">Vị trí</label>
+                                    <div class="m-row">
+                                        <select name="" id="txtPositionName" style="width: 234px;">
+                                            <option value="VT66">Giám đốc</option>
+                                            <option value="VT66">Nhân viên</option>
+                                        </select>
+                                    </div>
+                                    <!-- <label for="">Vị trí</label>
+                                    <div class="m-row">
+                                        <input id="txtPositionName" required type="text" style="width: 200px;" class="m-input " placeholder="Nhập họ và tên">
+                                    </div> -->
+                                    <label for="">Mã số thuế cá nhân</label>
+                                    <div class="m-row">
+                                        <input id="" required type="text" style="width: 200px;" class="m-input text-align-right">
+                                    </div>
+                                    <label for="">Ngày gia nhập công ty</label>
+                                    <div class="m-row">
+                                        <input id="" type="date" style="width: 200px;" class="m-input ">
+                                    </div>
+                                </div>
+    
+                                <div class="m-dialog-right">
+                                    <!-- <label for="">Phòng ban</label>
+                                    <div class="m-row">
+                                        <select name="" id="cbxDepartmentName" style="width: 234px;">
+                                            <option >Phòng nhân sự</option>
+                                            <option >Phòng kế toán</option>
+                                        </select>
+                                    </div> -->
+                                    <label for="">Phòng ban</label>
+                                    <div class="m-row">
+                                        <input id="cbxDepartmentName" required type="text" style="width: 200px;" class="m-input " placeholder="Nhập họ và tên">
+                                    </div>
+                                    <label for="">Mức lương cơ bản</label>
+                                    <div class="m-row">
+                                        <input id="txtSalary" type="text" style="width: 200px;" class="m-input text-align-right">
+                                    </div>
+                                    <label for="">Tình trạng công việc</label>
+                                    <div class="m-row">
+                                        <select name="" id="cbxWorkStatus" style="width: 234px;">
+                                            <option value="0">Đang làm việc</option>
+                                            <option value="1">OFF</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="m-dialog-footer">
+                                <button id="btnDelete" class="m-btn">Xóa</button>
+                                
+                                <button id="btnSave" class="m-btn">Lưu</button>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="m-loading">
+        <div class="m-loading-icon">
+            
+        </div>
+    </div>
+    <!-- thư viện js -->
+    <script src="/Js/jquery-3.6.0.min.js"></script>
+    <!-- Javacript sử dụng chung -->
+    <script src="/Js/resource.js"></script>
+    <!-- JS dành riêng cho page -->
+    <script src="/Js/page/employee.js"></script>
+    <script>
+        document.getElementById("btnAdd").addEventListener("click",function(){
+            var dialog = document.getElementById("dlgDialog");
+            dialog.style.display = "block";
+        })
+    </script>
+    
+    
+</body>
+
+</html>
